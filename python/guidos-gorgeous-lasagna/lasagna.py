@@ -1,5 +1,10 @@
+"""
+Define 40 minutes bake time expected
+Define 2 minutes for preparation
+"""
 EXPECTED_BAKE_TIME = 40
 PREPARATION_TIME = 2
+
 
 def bake_time_remaining(elapsed_bake_time):
     """
@@ -25,4 +30,4 @@ def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
     Take two parameter which are number of layers and elapsed bake time
     Return total minutes have been in the kitchen cooking
     """
-    return (preparation_time_in_minutes(number_of_layers) + elapsed_bake_time)
+    return preparation_time_in_minutes(number_of_layers) + elapsed_bake_time
