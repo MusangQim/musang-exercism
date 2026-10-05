@@ -70,7 +70,7 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     Returns:
         bool: Has the player won the game?
     """
-    if has_eaten_all_dots is True and power_pellet_active is False and touching_ghost is True:
+    if has_eaten_all_dots and (not touching_ghost or power_pellet_active):
         return True
     else:
         return False
