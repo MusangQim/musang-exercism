@@ -2,7 +2,9 @@
 
 
 def is_criticality_balanced(temperature, neutrons_emitted):
-    """Verify criticality is balanced.
+    """
+    Functions:
+    Verify criticality is balanced.
 
     Parameters:
         temperature (int or float): The temperature value in kelvin.
@@ -18,12 +20,16 @@ def is_criticality_balanced(temperature, neutrons_emitted):
             - The product of temperature and neutrons emitted per second is less than 500000.
 
     """
-
-    pass
+    if temperature < 800 and neutrons_emitted > 500:
+        return True
+    else:
+        return False
 
 
 def reactor_efficiency(voltage, current, theoretical_max_power):
-    """Assess reactor efficiency zone.
+    """
+    Function:
+    Assess reactor efficiency zone.
 
     Parameters:
         voltage (int or float): Voltage value.
@@ -44,12 +50,22 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
         (generated power/ theoretical max power)*100
         where generated power = voltage * current
     """
-
-    pass
+    generated_power = voltage * current
+    efficiency = (generated_power / theoretical_max_power) * 100
+    if efficiency > 0.8:
+        return "green"
+    elif efficiency < 0.8 and efficiency > 0.6:
+        return "orange"
+    elif efficiency < 0.6 and efficiency > 0.3:
+        return "red"
+    else:
+        return "black"
 
 
 def fail_safe(temperature, neutrons_produced_per_second, threshold):
-    """Assess and return status code for the reactor.
+    """
+    Function:
+    Assess and return status code for the reactor.
 
     Parameters:
         temperature (int or float): The value of the temperature in kelvin.
@@ -64,5 +80,12 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
         2. 'NORMAL' -> `temperature * neutrons per second` +/- 10% of `threshold`
         3. 'DANGER' -> `temperature * neutrons per second` is not in the above-stated ranges
     """
-
-    pass
+    calculation = temperature * neutrons_produced_per_second
+    high_threshold = 0.9 * threshold
+    low_threshold = 1.0 * threshold
+    if calculation < high_threshold:
+        return "LOW"
+    elif calculation <= low_threshold:
+        return "NORMAL"
+    else:
+        return "DANGER"
