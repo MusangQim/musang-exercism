@@ -6,7 +6,9 @@ How to play blackjack:    https://bicyclecards.com/how-to-play/blackjack/
 
 
 def value_of_card(card):
-    """Determine the scoring value of a card.
+    """
+    Function:
+    Determine the scoring value of a card.
 
     Parameters:
         card (str): The given card.
@@ -27,7 +29,9 @@ def value_of_card(card):
 
 
 def higher_card(card_one, card_two):
-    """Determine which card has a higher value in the hand.
+    """
+    Function:
+    Determine which card has a higher value in the hand.
 
     Parameters:
         card_one (str): First card dealt in the hand.  See below for values.
@@ -40,8 +44,14 @@ def higher_card(card_one, card_two):
     Returns:
         str or tuple: The resulting tuple contains both cards if they are of equal value.
     """
-
-    pass
+    value_one = value_of_card(card_one)
+    value_two = value_of_card(card_two)
+    if value_one > value_two:
+        return card_one
+    elif value_one == value_two:
+        return card_one, card_two
+    else:
+        return card_two
 
 
 def value_of_ace(card_one, card_two):
