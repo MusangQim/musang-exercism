@@ -34,12 +34,16 @@ allergic_to()
 
 list()
 {
-	local score="$1" item
+	local score="$1"
+	local item
+	local result=""
+
 	for item in eggs peanuts shellfish strawberries tomatoes chocolate pollen cats; do
-		if allergic_to "$score" "$item"; then
-			echo "$item"
+		if [[ $(allergic_to "$score" "$item") == "true" ]]; then
+			result+="$item "
 		fi
 	done
+	echo "${result% }"
 }
 
 allergy_score()
