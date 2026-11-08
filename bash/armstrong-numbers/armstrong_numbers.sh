@@ -1,24 +1,22 @@
 #!/usr/bin/env bash
 
-# The following comments should help you get started:
-# - Bash is flexible. You may use functions or write a "raw" script.
-#
-# - Complex code can be made easier to read by breaking it up
-#   into functions, however this is sometimes overkill in bash.
-#
-# - You can find links about good style and other resources
-#   for Bash in './README.md'. It came with this exercise.
-#
-#   Example:
-#   # other functions here
-#   # ...
-#   # ...
-#
-#   main () {
-#     # your main function code here
-#   }
-#
-#   # call main with all of the positional arguments
-#   main "$@"
-#
-# *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
+
+number="$1"
+no_digit=${#number}
+sum=0
+
+for ((i=0; i<no_digit; i++)); do
+	digits="${number:i:1}"
+	expansion=$((digits ** no_digit))
+	# echo "$expansion"
+	total=$((total + expansion))
+done
+
+if [[ "$number" -eq "$total" ]]; then
+	echo "true"
+else
+	echo "false"
+fi
+
+# echo "Total calculation: $total"
+# echo "No of digits: $no_digit"
