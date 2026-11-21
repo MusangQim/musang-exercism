@@ -5,9 +5,7 @@ def _is_valid(sides):
     """ Validate triangle sides and inequility """
     first_side, second_side, third_side = sides
     return (
-        first_side > 0 and
-        second_side > 0 and
-        third_side > 0 and
+        min(sides) > 0 and
         first_side + second_side > third_side and
         first_side + third_side > second_side and
         second_side + third_side > first_side
