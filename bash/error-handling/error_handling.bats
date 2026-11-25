@@ -12,7 +12,7 @@ test_correct_arguments() { # @test
 }
 
 test_one_long_argument() { # @test
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh "Alice and Bob"
 
   assert_success
@@ -20,7 +20,7 @@ test_one_long_argument() { # @test
 }
 
 test_incorrect_arguments() { # @test
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh Alice Bob
 
   assert_failure
@@ -28,7 +28,7 @@ test_incorrect_arguments() { # @test
 }
 
 test_print_usage_banner_with_no_value_given() { # @test
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh
 
   assert_failure
@@ -36,7 +36,7 @@ test_print_usage_banner_with_no_value_given() { # @test
 }
 
 test_empty_argument() { # @test
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash error_handling.sh ""
 
   assert_success
